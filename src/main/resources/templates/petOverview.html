@@ -9,7 +9,19 @@
 
 <h1>Overview of all pets</h1>
 
-<table></table>
+<table>
+    <tr>
+        <th>Species</th>
+        <th>Name</th>
+        <th>Owner</th>
+    </tr>
+    <tr th:each="pet : ${allPets}">
+        <td th:text="${pet.species}"></td>
+        <td th:text="${pet.petName}"></td>
+        <td th:text="${pet.owner}"></td>
+
+    </tr>
+</table>
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 package nl.miw.co13.arjan.petDemo.controller;
 
 import nl.miw.co13.arjan.petDemo.model.Pet;
+import nl.miw.co13.arjan.petDemo.repositories.PetRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,13 +15,16 @@ import java.util.List;
  **/
 @Controller
 public class PetController {
+    private final PetRepository petRepository;
+
+    public PetController(PetRepository petRepository) {
+        this.petRepository = petRepository;
+    }
+
     @GetMapping("/")
     private String showPetOverview(Model model) {
-        List<Pet> pets = new ArrayList<>();
-        pets.add(new Pet("Cat", "Croki", "Arjan Cnossen"));
-        pets.add(new Pet("Cat", "Flugel", "Arjan Cnossen"));
 
-        model.addAttribute("allPets", pets);
+        model.addAttribute("allPets", petRepository.findAll());
 
         return "petOverview";
 

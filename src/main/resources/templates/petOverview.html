@@ -19,9 +19,12 @@
         <td th:text="${pet.species}"></td>
         <td th:text="${pet.petName}"></td>
         <td th:text="${pet.owner}"></td>
-
     </tr>
 </table>
+
+<p>
+    <a th:href="@{/pet/new}">Add a new pet</a>
+</p>
 
 </body>
 </html>

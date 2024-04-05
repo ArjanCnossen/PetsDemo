@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a new pet</title>
+</head>
+<body>
+
+<h1>Create a new pet</h1>
+
+<form th:action="@{/pet/new}" method="post" th:object="${pet}">
+    <table>
+        <tr>
+            <td><label for="speciesField">Species</label></td>
+            <td><label for="nameField">Name</label></td>
+            <td><label for="ownerField">Owner</label></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" id="speciesField" th:field="*{species}" />
+            </td>
+            <td>
+                <input type="text" id="nameField" th:field="*{petName}" />
+            </td>
+            <td>
+                <input type="text" id="ownerField" th:field="*{owner}" />
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Save pet" />
+</form>
+</body>
+</html>
